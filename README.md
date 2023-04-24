@@ -1,4 +1,4 @@
-# Ignition Docker Project Template
+# Postgres Docker Project Template
 
 ___
 
@@ -63,9 +63,18 @@ ___
     docker-compose pull && docker-compose up -d
     ```
 
-10. In a web browser, access the gateway at `http://localhost/` (No port is required, since the template is using port 80)
+10. In a web browser, access the gateway at `http://localhost/`
+    (No port is required, since the template is using port 80)
 
-11. If using trafik as a proxy, access the gateway at `http://<project-name>.localtest.me`
+11. If using trafik, access the gateway at `http://<project-name>.localtest.me`
+
+___
+
+## Pre-Configured Database
+
+The template is pre-configured with a postgres database, that can be setup with an `init.sql` script to create the database and tables.
+
+To setup the database, add your `init.sql` script to the `ddl` directory, and uncomment the volume mount in the database. The script will be run when the container is first created, and not as it is stopped and started.
 
 ___
 

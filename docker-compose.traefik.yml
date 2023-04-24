@@ -16,6 +16,26 @@ services:
       - default
       - proxy
 
+  database:
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.postgres-template-database.entrypoints: "web"
+      traefik.http.routers.postgres-template-database.rule: "Host(`postgres-template-database.localtest.me`)"
+      traefik.http.services.postgres-template-database.loadbalancer.server.port: "5432"
+    networks:
+      - default
+      - proxy
+  # Uncomment the following lines to enable pgAdmin
+  # pgadmin:
+  #   labels:
+  #     traefik.enable: "true"
+  #     traefik.http.routers.postgres-template-pgadmin.entrypoints: "web"
+  #     traefik.http.routers.postgres-template-pgadmin.rule: "Host(`postgres-template-pgadmin.localtest.me`)"
+  #     traefik.http.services.postgres-template-pgadmin.loadbalancer.server.port: "80"
+  #   networks:
+  #     - default
+  #     - proxy
+
 networks:
   default:
   proxy:

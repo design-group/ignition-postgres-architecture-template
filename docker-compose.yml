@@ -12,3 +12,24 @@ services:
       - SYMLINK_LOGBACK=false
     command: >
       -r /restore.gwbk
+  database:
+    image: postgres
+    hostname: postgres
+    ports:
+      - 5432
+    # If you want to preload the database with a DDL script, uncomment the following lines and add your DDL script to the ./ddl folder
+    # volumes:
+    #   - ./ddl:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: ignition
+      POSTGRES_DB: ignition
+    
+  # Uncomment the following lines to enable pgAdmin for database management
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@admin.com
+  #     PGADMIN_DEFAULT_PASSWORD: root
+  #   ports:
+  #     - 80

@@ -81,7 +81,7 @@ error getting credentials - err: exec: "docker-credential-desktop.exe": executab
 ```
 
 Solution:
-Write `nano ~/.docker/config.json` and change `credsStore` to `credStore`.
+Enter the command `nano ~/.docker/config.json` and change `credsStore` to `credStore`.
 
 ## Pre-Configured Database
 

@@ -71,6 +71,18 @@ ___
 
 ___
 
+## "Error Getting Credentials"
+
+If you are getting an error that looks like:
+
+```sh
+error getting credentials - err: docker-credential-desktop.exe resolves to executable in current directory (./docker-credential-desktop.exe), out: ``
+error getting credentials - err: exec: "docker-credential-desktop.exe": executable file not found in $PATH, out: ``
+```
+
+Solution:
+Write `nano ~/.docker/config.json` and change `credsStore` to `credStore`.
+
 ## Pre-Configured Database
 
 The template is pre-configured with a postgres database, that can be setup with an `init.sql` script to create the database and tables.
